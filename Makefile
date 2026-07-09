@@ -14,3 +14,19 @@ migrate-down:
 
 migrate-create:
 	migrate create -ext sql -dir $(MIGRATIONS_DIR) -seq $(name)
+
+.PHONY: sandbox-up sandbox-down sandbox-ports
+
+sandbox-up:
+	docker compose up --build -d
+
+sandbox-down:
+	docker compose down -v
+
+sandbox-ports:
+	docker compose port app 8080
+
+.PHONY: install-hooks
+
+install-hooks:
+	pre-commit install

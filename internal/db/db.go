@@ -23,7 +23,7 @@ func Connect(ctx context.Context, databaseURL string) (*sql.DB, error) {
 	}
 
 	if err := pool.PingContext(ctx); err != nil {
-		pool.Close()
+		_ = pool.Close()
 		return nil, fmt.Errorf("db: failed to connect to database: %w", err)
 	}
 
