@@ -1,0 +1,12 @@
+title = "gitleaks config"
+
+# Extend the default ruleset shipped with gitleaks; no project-specific rules
+# or allowlist entries are needed yet.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Global allowlist"
+paths = [
+  '''(^|/)go\.sum$''',
+]

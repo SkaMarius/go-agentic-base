@@ -25,3 +25,8 @@ sandbox-down:
 
 sandbox-ports:
 	docker compose port app 8080
+
+.PHONY: install-hooks
+
+install-hooks:
+	pre-commit install
