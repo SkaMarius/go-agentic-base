@@ -1,7 +1,6 @@
 title = "gitleaks config"
 
-# Extend the default ruleset shipped with gitleaks; no project-specific rules
-# or allowlist entries are needed yet.
+# Extend the default ruleset shipped with gitleaks.
 [extend]
 useDefault = true
 
@@ -9,4 +8,6 @@ useDefault = true
 description = "Global allowlist"
 paths = [
   '''(^|/)go\.sum$''',
+  # Known-safe fixture (fake credential) demonstrating the allowlist.
+  '''(^|/)testdata/gitleaks-known-safe-fixture\.txt$''',
 ]
