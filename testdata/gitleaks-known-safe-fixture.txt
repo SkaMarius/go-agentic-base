@@ -1,0 +1,4 @@
+# Known-safe fixture used to verify the gitleaks allowlist in .gitleaks.toml
+# excludes intentionally-fake credentials shaped like real ones. This is not
+# a real secret and is never used by any code.
+AWS_SECRET_ACCESS_KEY = "AKIAABCDEFGHIJKLMNOP"

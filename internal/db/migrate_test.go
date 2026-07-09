@@ -27,7 +27,7 @@ func TestMigrations_CreateExampleTable(t *testing.T) {
 	if err != nil {
 		t.Fatalf("connect: %v", err)
 	}
-	defer conn.Close()
+	defer func() { _ = conn.Close() }()
 
 	if err := applyMigrations(ctx, conn, "../../migrations"); err != nil {
 		t.Fatalf("apply migrations: %v", err)

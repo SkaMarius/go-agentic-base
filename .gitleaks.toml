@@ -1,0 +1,13 @@
+title = "gitleaks config"
+
+# Extend the default ruleset shipped with gitleaks.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Global allowlist"
+paths = [
+  '''(^|/)go\.sum$''',
+  # Known-safe fixture (fake credential) demonstrating the allowlist.
+  '''(^|/)testdata/gitleaks-known-safe-fixture\.txt$''',
+]
