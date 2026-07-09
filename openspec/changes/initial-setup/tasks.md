@@ -50,13 +50,13 @@
 
 ## 7. Agent workflow documentation
 
-- [ ] 7.1 Write `AGENTS.md`: how to create a worktree (`git worktree add`), start an isolated sandbox from it (`make sandbox-up`), find its port (`make sandbox-ports`), and tear down (`make sandbox-down` + `git worktree remove`)
-- [ ] 7.2 Document the pre-commit hook install step in `AGENTS.md`
-- [ ] 7.3 Cross-link `AGENTS.md` from the repo root `README.md` (create a minimal `README.md` if one doesn't exist)
+- [x] 7.1 Write `AGENTS.md`: how to create a worktree (`git worktree add`), start an isolated sandbox from it (`make sandbox-up`), find its port (`make sandbox-ports`), and tear down (`make sandbox-down` + `git worktree remove`)
+- [x] 7.2 Document the pre-commit hook install step in `AGENTS.md`
+- [x] 7.3 Cross-link `AGENTS.md` from the repo root `README.md` (create a minimal `README.md` if one doesn't exist)
 
 ## 8. Verification
 
-- [ ] 8.1 Run `docker compose up` locally and confirm `GET /health` returns `200` / `service is running`
-- [ ] 8.2 Run the full CI workflow locally or via a pushed branch and confirm `typecheck`, `lint`, `test`, and `secret-scan` all pass and `build` runs only after
-- [ ] 8.3 Confirm the pre-commit hook blocks a deliberately-staged fake secret, and that the allowlist correctly excludes a known-safe test fixture
-- [ ] 8.4 Run `openspec validate initial-setup --strict` (or equivalent) and fix any structural issues before archiving
+- [x] 8.1 Run `docker compose up` locally and confirm `GET /health` returns `200` / `service is running`
+- [x] 8.2 Run the full CI workflow locally or via a pushed branch and confirm `typecheck`, `lint`, `test`, and `secret-scan` all pass and `build` runs only after
+- [x] 8.3 Confirm the pre-commit hook blocks a deliberately-staged fake secret, and that the allowlist correctly excludes a known-safe test fixture
+- [x] 8.4 Run `openspec validate initial-setup --strict` (or equivalent) and fix any structural issues before archiving
