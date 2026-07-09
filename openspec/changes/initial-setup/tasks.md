@@ -6,20 +6,20 @@
 
 ## 2. HTTP server & health endpoint
 
-- [ ] 2.1 Add `go-chi/chi` dependency
-- [ ] 2.2 Implement `internal/config` — load `PORT` (default `8080`) and `DATABASE_URL` from env
-- [ ] 2.3 Implement `internal/server` router with `GET /health` returning `200` and body `service is running`
-- [ ] 2.4 Implement `cmd/server/main.go` — load config, build router, start HTTP server on configured port
-- [ ] 2.5 Write a handler test for `GET /health` asserting status `200` and exact body
+- [x] 2.1 Add `go-chi/chi` dependency
+- [x] 2.2 Implement `internal/config` — load `PORT` (default `8080`) and `DATABASE_URL` from env
+- [x] 2.3 Implement `internal/server` router with `GET /health` returning `200` and body `service is running`
+- [x] 2.4 Implement `cmd/server/main.go` — load config, build router, start HTTP server on configured port
+- [x] 2.5 Write a handler test for `GET /health` asserting status `200` and exact body
 
 ## 3. Database & migrations
 
-- [ ] 3.1 Add `jackc/pgx/v5` (stdlib adapter) dependency
-- [ ] 3.2 Implement `internal/db` connection helper using `DATABASE_URL`, failing fast with a clear error on invalid/missing config
-- [ ] 3.3 Add `golang-migrate` as the migration tool (CLI usage documented in Makefile, no app dependency required unless self-migration is added later)
-- [ ] 3.4 Write initial migration pair (`0001_*.up.sql` / `0001_*.down.sql`) creating one example table
-- [ ] 3.5 Add Makefile targets: `migrate-up`, `migrate-down`, `migrate-create`
-- [ ] 3.6 Write a test that runs migrations against a test database and asserts the example table exists
+- [x] 3.1 Add `jackc/pgx/v5` (stdlib adapter) dependency
+- [x] 3.2 Implement `internal/db` connection helper using `DATABASE_URL`, failing fast with a clear error on invalid/missing config
+- [x] 3.3 Add `golang-migrate` as the migration tool (CLI usage documented in Makefile, no app dependency required unless self-migration is added later)
+- [x] 3.4 Write initial migration pair (`0001_*.up.sql` / `0001_*.down.sql`) creating one example table
+- [x] 3.5 Add Makefile targets: `migrate-up`, `migrate-down`, `migrate-create`
+- [x] 3.6 Write a test that runs migrations against a test database and asserts the example table exists
 
 ## 4. Containerization & sandbox isolation
 
