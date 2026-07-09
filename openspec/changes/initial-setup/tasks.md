@@ -23,30 +23,30 @@
 
 ## 4. Containerization & sandbox isolation
 
-- [ ] 4.1 Write multi-stage `Dockerfile` (build stage → minimal runtime stage) for the server
-- [ ] 4.2 Write `docker-compose.yml` with `app` + `db` (`postgres:16-alpine`) services
-- [ ] 4.3 Add a healthcheck to `db` and make `app` depend on `db` being healthy before starting
-- [ ] 4.4 Configure `app`'s port mapping as container-only (e.g. `"8080"`) so Docker assigns a random host port per compose project
-- [ ] 4.5 Add Makefile targets: `sandbox-up`, `sandbox-down`, `sandbox-ports` (wraps `docker compose port app 8080`)
-- [ ] 4.6 Manually verify: start the stack from two different git worktrees at once and confirm both come up with no container/network/volume/port collisions
+- [x] 4.1 Write multi-stage `Dockerfile` (build stage → minimal runtime stage) for the server
+- [x] 4.2 Write `docker-compose.yml` with `app` + `db` (`postgres:16-alpine`) services
+- [x] 4.3 Add a healthcheck to `db` and make `app` depend on `db` being healthy before starting
+- [x] 4.4 Configure `app`'s port mapping as container-only (e.g. `"8080"`) so Docker assigns a random host port per compose project
+- [x] 4.5 Add Makefile targets: `sandbox-up`, `sandbox-down`, `sandbox-ports` (wraps `docker compose port app 8080`)
+- [x] 4.6 Manually verify: start the stack from two different git worktrees at once and confirm both come up with no container/network/volume/port collisions
 
 ## 5. CI pipeline
 
-- [ ] 5.1 Add `.github/workflows/ci.yml` triggered on `push` and `pull_request`
-- [ ] 5.2 Add `typecheck` job: `go build ./...` + `go vet ./...`
-- [ ] 5.3 Add `lint` job (independent of `typecheck`): install and run `golangci-lint`
-- [ ] 5.4 Add `test` job (independent of `typecheck`/`lint`): start a Postgres `services:` container, wait for health, run migrations, run `go test ./... -race -cover`
-- [ ] 5.5 Add `secret-scan` job (independent of the others): run `gitleaks detect` over the push/PR diff (see section 6)
-- [ ] 5.6 Add `build` job depending on `typecheck`, `lint`, `test`, and `secret-scan` all succeeding: `go build -o bin/server ./cmd/server`, upload as a workflow artifact
-- [ ] 5.7 Confirm no job publishes, deploys, or contacts an external host — pipeline ends at the build artifact
+- [x] 5.1 Add `.github/workflows/ci.yml` triggered on `push` and `pull_request`
+- [x] 5.2 Add `typecheck` job: `go build ./...` + `go vet ./...`
+- [x] 5.3 Add `lint` job (independent of `typecheck`): install and run `golangci-lint`
+- [x] 5.4 Add `test` job (independent of `typecheck`/`lint`): start a Postgres `services:` container, wait for health, run migrations, run `go test ./... -race -cover`
+- [x] 5.5 Add `secret-scan` job (independent of the others): run `gitleaks detect` over the push/PR diff (see section 6)
+- [x] 5.6 Add `build` job depending on `typecheck`, `lint`, `test`, and `secret-scan` all succeeding: `go build -o bin/server ./cmd/server`, upload as a workflow artifact
+- [x] 5.7 Confirm no job publishes, deploys, or contacts an external host — pipeline ends at the build artifact
 
 ## 6. Secret scanning
 
-- [ ] 6.1 Add `.gitleaks.toml` with an initial (empty or minimal) allowlist
-- [ ] 6.2 Run a one-time full-history baseline audit (`gitleaks detect --source . --log-opts="--all"` or equivalent) and confirm zero findings before proceeding
-- [ ] 6.3 Wire the `secret-scan` CI job (`gitleaks/gitleaks-action` or equivalent) into `.github/workflows/ci.yml`, scoped to the incoming diff/commit range
-- [ ] 6.4 Add a local pre-commit hook (`.pre-commit-config.yaml` or a Makefile-wrapped git hook) running `gitleaks protect --staged`
-- [ ] 6.5 Pin the same `gitleaks` version in both the CI job and the pre-commit hook so behavior matches
+- [x] 6.1 Add `.gitleaks.toml` with an initial (empty or minimal) allowlist
+- [x] 6.2 Run a one-time full-history baseline audit (`gitleaks detect --source . --log-opts="--all"` or equivalent) and confirm zero findings before proceeding
+- [x] 6.3 Wire the `secret-scan` CI job (`gitleaks/gitleaks-action` or equivalent) into `.github/workflows/ci.yml`, scoped to the incoming diff/commit range
+- [x] 6.4 Add a local pre-commit hook (`.pre-commit-config.yaml` or a Makefile-wrapped git hook) running `gitleaks protect --staged`
+- [x] 6.5 Pin the same `gitleaks` version in both the CI job and the pre-commit hook so behavior matches
 
 ## 7. Agent workflow documentation
 
